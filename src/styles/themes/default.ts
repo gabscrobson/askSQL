@@ -17,5 +17,5 @@ export const defaultTheme = {
 
   pistachio: '#D3FFCC',
 
-  red: '#FD0000',
+  red: '#FB0000',
 }

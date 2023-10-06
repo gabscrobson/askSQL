@@ -18,4 +18,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     -webkit-font-smoothing: antialiased;
   }
+
+  ::selection {
+    background: ${(props) => props.theme.pistachio};
+    color: ${(props) => props.theme.blueberry};
+  }
 `
