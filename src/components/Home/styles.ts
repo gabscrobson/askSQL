@@ -56,7 +56,7 @@ export const FormContainer = styled.form`
 
   textarea {
     width: 100%;
-    height: 10rem;
+    height: 6rem;
     padding: 1rem;
     border-radius: 6px;
     border: solid 1px ${(props) => props.theme.textAreaBorder};
@@ -132,43 +132,4 @@ export const ResultContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-
-  textarea {
-    width: 100%;
-    height: 10rem;
-    padding: 1rem;
-    border-radius: 6px;
-    border: solid 1px ${(props) => props.theme.textAreaBorder};
-    background: ${(props) => props.theme.blueberry};
-    color: ${(props) => props.theme.foam};
-    resize: none;
-    overflow-y: auto;
-    cursor: auto;
-    transition: 0.15s;
-
-    &:focus {
-      outline: none;
-    }
-
-    &::-webkit-scrollbar {
-      width: 15px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.4);
-      border-top: 10px ${(props) => props.theme.textAreaBackground} solid;
-      border-bottom: 10px ${(props) => props.theme.textAreaBackground} solid;
-      border-right: 10px ${(props) => props.theme.textAreaBackground} solid;
-      background-clip: padding-box;
-      border-radius: 0 5px 5px 0;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.6);
-      }
-    }
-  }
 `

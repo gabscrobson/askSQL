@@ -19,8 +19,8 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  ::selection {
+  /* ::selection {
     background: ${(props) => props.theme.pistachio};
     color: ${(props) => props.theme.blueberry};
-  }
+  } */
 `
