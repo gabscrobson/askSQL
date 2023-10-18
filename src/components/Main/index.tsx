@@ -11,30 +11,40 @@ import { Trash, StarFour } from 'phosphor-react'
 import { CodeEditor } from '../CodeEditor'
 import { useState } from 'react'
 import { useCompletion } from 'ai/react'
-import Image from 'next/image'
 
 export function Main() {
   const [schema, setSchema] = useState('')
 
-  const { completion, handleSubmit, input, handleInputChange } = useCompletion({
+  const {
+    completion,
+    setCompletion,
+    handleSubmit,
+    input,
+    handleInputChange,
+    setInput,
+  } = useCompletion({
     api: '/api/completion',
     body: {
       schema,
     },
   })
 
-  const result = completion
-
   function handleSchemaChange(code: string) {
     setSchema(code)
+  }
+
+  function handleTrashClick() {
+    setSchema('')
+    setInput('')
+    setCompletion('')
   }
 
   return (
     <HomeContainer>
       <HomeContent>
         <header>
-          <Image src="/logo.svg" alt="logo" />
-          <TrashButton type="button">
+          <img src="/logo.svg" alt="logo" />
+          <TrashButton type="button" onClick={handleTrashClick}>
             <Trash size={30} />
           </TrashButton>
         </header>
@@ -63,10 +73,10 @@ export function Main() {
           </AskButton>
         </FormContainer>
 
-        {result && (
+        {completion && (
           <ResultContainer>
             <p>Result</p>
-            <CodeEditor value={result} onChange={() => {}} readonly />
+            <CodeEditor value={completion} onChange={() => {}} readonly />
           </ResultContainer>
         )}
       </HomeContent>

@@ -6,7 +6,7 @@ interface EditorContainerProps {
 
 export const EditorContainer = styled.div<EditorContainerProps>`
   width: 100%;
-  height: 10rem;
+  height: ${(props) => (props.readOnly ? 'auto' : '10rem')};
   padding: 1rem;
   border-radius: 6px;
   border: solid 1px ${(props) => props.theme.textAreaBorder};
