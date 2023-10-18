@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@types/prismjs": "^1.26.1",
+    "ai": "^2.2.16",
     "next": "13.5.5",
+    "openai": "^4.12.4",
     "phosphor-react": "^1.4.1",
     "prismjs": "^1.29.0",
     "react": "^18",

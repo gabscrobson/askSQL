@@ -10,32 +10,40 @@ import {
 import { Trash, StarFour } from 'phosphor-react'
 import { CodeEditor } from '../CodeEditor'
 import { useState } from 'react'
+import { useCompletion } from 'ai/react'
+import Image from 'next/image'
 
 export function Main() {
-  const [code, setCode] = useState('')
-  const [question, setQuestion] = useState('')
-  const [result, setResult] = useState('')
+  const [schema, setSchema] = useState('')
 
-  function handleCodeChange(code: string) {
-    setCode(code)
-    setResult('')
+  const { completion, handleSubmit, input, handleInputChange } = useCompletion({
+    api: '/api/completion',
+    body: {
+      schema,
+    },
+  })
+
+  const result = completion
+
+  function handleSchemaChange(code: string) {
+    setSchema(code)
   }
 
   return (
     <HomeContainer>
       <HomeContent>
         <header>
-          <img src="/logo.svg" alt="logo" />
+          <Image src="/logo.svg" alt="logo" />
           <TrashButton type="button">
             <Trash size={30} />
           </TrashButton>
         </header>
 
-        <FormContainer>
+        <FormContainer onSubmit={handleSubmit}>
           <label htmlFor="schema">Paste your SQL code here</label>
           <CodeEditor
-            value={code}
-            onChange={handleCodeChange}
+            value={schema}
+            onChange={handleSchemaChange}
             placeholder="CREATE TABLE ..."
             name="schema"
           />
@@ -45,8 +53,8 @@ export function Main() {
             name="question"
             id="question"
             placeholder="Select all users with more than 25 years old"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
+            value={input}
+            onChange={handleInputChange}
           />
 
           <AskButton type="submit">
