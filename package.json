@@ -6,19 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "nextlint": "next lint"
   },
   "dependencies": {
+    "@types/prismjs": "^1.26.1",
+    "next": "13.5.5",
+    "phosphor-react": "^1.4.1",
+    "prismjs": "^1.29.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.5"
+    "react-simple-code-editor": "^0.13.1",
+    "styled-components": "^6.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@rocketseat/eslint-config": "^2.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/styled-components": "^5.1.26",
     "eslint": "^8",
-    "eslint-config-next": "13.5.5"
+    "eslint-config-next": "13.5.5",
+    "typescript": "^5"
   }
 }
