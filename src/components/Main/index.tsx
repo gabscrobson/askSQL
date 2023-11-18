@@ -4,6 +4,7 @@ import {
   FormContainer,
   HomeContainer,
   HomeContent,
+  LoadingSpinner,
   ResultContainer,
   TrashButton,
 } from './styles'
@@ -22,6 +23,7 @@ export function Main() {
     input,
     handleInputChange,
     setInput,
+    isLoading,
   } = useCompletion({
     api: '/api/completion',
     body: {
@@ -67,8 +69,8 @@ export function Main() {
             onChange={handleInputChange}
           />
 
-          <AskButton type="submit">
-            <StarFour size={26} />
+          <AskButton type="submit" disabled={isLoading}>
+            {isLoading ? <LoadingSpinner size={26} /> : <StarFour size={26} />}
             <span>Ask to artificial intelligence</span>
           </AskButton>
         </FormContainer>

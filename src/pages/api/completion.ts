@@ -7,7 +7,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: Request) {
   const { schema, prompt } = await req.json()
 
   const message =

@@ -1,3 +1,4 @@
+import { Spinner } from 'phosphor-react'
 import { styled } from 'styled-components'
 
 export const HomeContainer = styled.div`
@@ -113,9 +114,24 @@ export const AskButton = styled.button`
   transition: 0.15s;
   cursor: pointer;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: ${(props) => props.theme.pistachio};
     color: ${(props) => props.theme.blueberry};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`
+
+export const LoadingSpinner = styled(Spinner)`
+  animation: spin 4s linear infinite;
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `
 
